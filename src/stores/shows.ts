@@ -24,7 +24,7 @@ export const useShowsStore = defineStore('shows', () => {
   //
   const genreToColor = (genre: string) => {
     let result = 'teal-700'
-    const colors = {"Drama": "blue-900",
+    const colors: {[schemaKey: string]: string } = {"Drama": "blue-900",
       "Science-Fiction": "green-900",
       "Thriller": "sky-700",
       "Action": "yellow-800",
@@ -47,10 +47,8 @@ export const useShowsStore = defineStore('shows', () => {
       "War": "lime-800",
       "Sports": "green-800"
     }
-   for (const key in colors) {
-    if (genre == key)
-      result = colors[key]
-   }
+    if (colors[genre])
+      result = colors[genre]
    return result
   }
 
