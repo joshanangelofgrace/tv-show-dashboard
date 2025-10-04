@@ -6,7 +6,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-const props = defineProps<{
+defineProps<{
 	label: string,
   item?: string,
   link?: string,

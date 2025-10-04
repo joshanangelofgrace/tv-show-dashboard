@@ -2,12 +2,12 @@
   <div v-if="showStore.tvShows" class="flex flex-col gap-4 p-3">
      <SearchInput v-model="searchVal" />
      <div v-if="!searchVal">
-      <div v-for="show in showStore.groupedShows" :key="show.genre">
+      <div v-for="show in showStore.groupedShows" :key="show.genre.name">
           <tv-show-card-group :genre="show.genre" :shows="show.shows" />
         </div>
       </div>
       <div v-else>
-        <tv-show-card-group :genre="t(tms.dashboard.searchTitle) + ': ' + searchVal" :shows="searchedShows" />
+        <tv-show-card-group :genre="searchGenre" :shows="searchedShows" />
       </div>
   </div>
   <div v-else class="p-3 flex flex-col gap-5 mb-2">
@@ -48,6 +48,13 @@ const searchedShows = computed(() => {
     })
   }
   return []
+})
+
+const searchGenre = computed(() => {
+  return {
+        name: t(tms.dashboard.searchTitle) + ': ' + searchVal.value,
+        color: 'teal-700'
+      }
 })
 
 onMounted(() => {

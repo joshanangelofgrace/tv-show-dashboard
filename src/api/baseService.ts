@@ -2,7 +2,7 @@ import Axios, { type AxiosResponse } from 'axios'
 
 const baseService = {
 	baseURL() {
-		return 'https://api.tvmaze.com/' //`${import.meta.env.VITE_APP_BASE_URL}`
+		return 'https://api.tvmaze.com/'
 	},
 	formURL(url: string) {
 		return this.baseURL() + url

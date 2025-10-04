@@ -1,7 +1,7 @@
 <template>
   <div class="min-w-36 max-w-36 cursor-pointer hover:opacity-85 hover:scale-[105%] rounded-lg">
     <img :src="show.image.medium" />
-    <div class="bg-teal-800 p-4 h-32 flex flex-col gap-1">
+    <div class="p-4 h-32 flex flex-col gap-1" :class="'bg-' + cardColor">
       <h3 class="text-white font-light">{{ show.name }}</h3>
       <vue3-star-ratings v-model="rating" :disable-click="true" :numberOfStars="10" :starSize="10" />
     </div>
@@ -12,7 +12,8 @@ import type { TvShow } from '@/interfaces/tvShow';
 import { ref, watch } from 'vue';
 
 const props = defineProps<{
-	show: TvShow
+	show: TvShow,
+  cardColor: string
 }>()
 
 const rating = ref<number>(props.show.rating.average)

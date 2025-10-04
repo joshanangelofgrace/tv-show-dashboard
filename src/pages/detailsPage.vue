@@ -16,7 +16,7 @@
         <h2 class="text-2xl font-extralight mb-2">{{ t(tms.detailPage.infoCard.title) }}</h2>
         <tv-show-detail-item v-if="tv?.network && tv?.network.name && tv?.network.officialSite" :label="t(tms.detailPage.infoCard.network)" :link="tv?.network?.officialSite" :link-text="tv?.network?.name" />
         <tv-show-detail-item v-else-if="tv?.network && tv?.network.name && !tv?.network.officialSite" :label="t(tms.detailPage.infoCard.network)" :item="tv?.network?.name" />
-        <tv-show-detail-item :label="t(tms.detailPage.infoCard.schedule)":item="scheduleText" />
+        <tv-show-detail-item :label="t(tms.detailPage.infoCard.schedule)" :item="scheduleText" />
         <tv-show-detail-item :label="t(tms.detailPage.infoCard.status)" :item="tv?.status" />
         <tv-show-detail-item :label="t(tms.detailPage.infoCard.showType)" :item="tv?.type" />
         <tv-show-detail-item :label="t(tms.detailPage.infoCard.genres)" :item="genresText" />
