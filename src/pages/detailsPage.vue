@@ -1,18 +1,18 @@
 <template>
   <div v-if="loaded" class="p-3 flex flex-col gap-5 mb-2">
     <h1 class="text-3xl font-extralight">{{ tv?.name }}</h1>
-    <div class="flex gap-2 flex-wrap">
-      <img class="object-contain flex-1 max-w-72" :src="tv?.image?.medium" :alt="tv?.name" />
+    <div class="flex flex-col sm:flex-row gap-2 flex-wrap">
+      <img class="object-contain flex-1 max-w-72 m-auto" :src="tv?.image?.medium" :alt="tv?.name" />
       <div class="flex flex-col flex-1 gap-3">
         <div v-html="tv?.summary" class="min-w-72" />
         <div class="flex">
-          <a :href="tv?.officialSite" class="border border-green-500 p-4 flex hover:bg-green-50 cursor-pointer" target="_blank">
+          <a :href="tv?.officialSite" class="border border-green-500 p-4 flex hover:bg-green-50 cursor-pointer m-auto" target="_blank">
             <PlayIcon class="w-8 h-8 text-green-500" />
             <div class="m-auto">{{ t(tms.detailPage.buttons.watchNow) }}</div>
           </a>
         </div>
       </div>
-      <div class="bg-gray-100 p-3 flex-1 max-w-72 min-w-72 flex flex-col gap-1.5">
+      <div class="bg-gray-100 p-3 flex-1 max-w-72 min-w-72 flex flex-col gap-1.5 m-auto">
         <h2 class="text-2xl font-extralight mb-2">{{ t(tms.detailPage.infoCard.title) }}</h2>
         <tv-show-detail-item v-if="tv?.network && tv?.network.name && tv?.network.officialSite" :label="t(tms.detailPage.infoCard.network)" :link="tv?.network?.officialSite" :link-text="tv?.network?.name" />
         <tv-show-detail-item v-else-if="tv?.network && tv?.network.name && !tv?.network.officialSite" :label="t(tms.detailPage.infoCard.network)" :item="tv?.network?.name" />
