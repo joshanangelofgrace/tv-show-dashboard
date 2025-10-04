@@ -41,7 +41,7 @@ const groupedShows = computed(() => {
 
   async function loadShows() {
     if (!tvShows.value) {
-      tvShows.value = await tvService.getShows(1)
+      tvShows.value = await tvService.getShows()
     }
   }
 

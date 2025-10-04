@@ -7,7 +7,7 @@
         </div>
       </div>
       <div v-else>
-        <tv-show-card-group :genre="'Search Results: ' + searchVal" :shows="searchedShows" />
+        <tv-show-card-group :genre="t(tms.dashboard.searchTitle) + ': ' + searchVal" :shows="searchedShows" />
       </div>
   </div>
   <div v-else class="p-3 flex flex-col gap-5 mb-2">
@@ -28,10 +28,15 @@
 </template>
 <script lang="ts" setup>
 import tvShowCardGroup from '@/components/tvShowCardGroup.vue';
+import { Messages } from '@/i18n';
 import { useShowsStore } from '@/stores/shows';
 import { computed, onMounted, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 import SearchInput from 'vue-search-input'
 import 'vue-search-input/dist/styles.css'
+
+const t = useI18n({ inheritLocale: true, useScope: 'global' }).t
+const tms = Messages
 
 const searchVal = ref('')
 const showStore = useShowsStore()

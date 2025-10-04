@@ -2,7 +2,7 @@ import type { TvShow } from '@/interfaces/tvShow'
 import baseService from './baseService'
 
 const tvService = {
-  async getShows(pageNumber: number) {
+  async getShows() {
     return (await baseService.processRequest<TvShow[]>('shows'))?.data
   },
   async getShow(id: string) {

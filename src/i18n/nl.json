@@ -1,3 +1,19 @@
 {
-  "general": {}
+  "dashboard": {
+    "searchTitle": "Zoekresultaten"
+  },
+  "detailPage": {
+    "buttons": {
+      "watchNow": "Bekijk nu"
+    },
+    "infoCard": {
+      "title": "TV-programma info",
+      "network": "Netwerk",
+      "schedule": "Schema",
+      "status": "Status",
+      "showType": "TV-programmatype",
+      "genres": "Genres",
+      "site": "Officiële site"
+    }
+  }
 }

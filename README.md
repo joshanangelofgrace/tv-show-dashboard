@@ -1,35 +1,19 @@
 # tv-dashboard
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a tv dashboard that allows users to view TV shows from the tvmaze API in a simple easy to use way
 
-## Recommended IDE Setup
+## Architecture Choices
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+This application is designed and written in Vue, namely because that is the framework of choice of ABN AMRO.
 
-## Recommended Browser Setup
+The application is structured in a way that is as simple and component based as possible as this helps to leverage the power of VueJS.
+This application uses Pinia to help to cache and reduce the number of API calls made.
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+Minimal boiler plate code has been used with only a couple of custom packages added to provide a ratings control and a search bar.
 
-## Type Support for `.vue` Imports in TS
+AI has not been used at all in producing this application
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-yarn
-```
-
-### Compile and Hot-Reload for Development
+### Run locally for testing
 
 ```sh
 yarn dev

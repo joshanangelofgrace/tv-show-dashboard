@@ -1,5 +1,19 @@
 {
-    "general": {
-        
+    "dashboard": {
+        "searchTitle": "Search results"
+    },
+    "detailPage": {
+        "buttons": {
+            "watchNow": "Watch Now"
+        },
+        "infoCard": {
+            "title": "Show Info",
+            "network": "Network",
+            "schedule": "Schedule",
+            "status": "Status",
+            "showType": "Show Type", 
+            "genres": "Genres",
+            "site": "Official Site"
+        }
     }
 }

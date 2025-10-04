@@ -8,18 +8,19 @@
         <div class="flex">
           <a :href="tv?.officialSite" class="border border-green-500 p-4 flex hover:bg-green-50 cursor-pointer" target="_blank">
             <PlayIcon class="w-8 h-8 text-green-500" />
-            <div class="m-auto">Watch Now</div>
+            <div class="m-auto">{{ t(tms.detailPage.buttons.watchNow) }}</div>
           </a>
         </div>
       </div>
       <div class="bg-gray-100 p-3 flex-1 max-w-72 min-w-72 flex flex-col gap-1.5">
-        <h2 class="text-2xl font-extralight mb-2">Show Info</h2>
-        <tv-show-detail-item label="Network" :link="tv?.network?.officialSite" :link-text="tv?.network?.name" />
-        <tv-show-detail-item label="Schedule" :item="scheduleText" />
-        <tv-show-detail-item label="Status" :item="tv?.status" />
-        <tv-show-detail-item label="Show Type" :item="tv?.type" />
-        <tv-show-detail-item label="Genres" :item="genresText" />
-        <tv-show-detail-item v-if="tv?.officialSite" label="Official Site" :link="tv?.officialSite" :link-text="tv?.officialSite" />
+        <h2 class="text-2xl font-extralight mb-2">{{ t(tms.detailPage.infoCard.title) }}</h2>
+        <tv-show-detail-item v-if="tv?.network && tv?.network.name && tv?.network.officialSite" :label="t(tms.detailPage.infoCard.network)" :link="tv?.network?.officialSite" :link-text="tv?.network?.name" />
+        <tv-show-detail-item v-else-if="tv?.network && tv?.network.name && !tv?.network.officialSite" :label="t(tms.detailPage.infoCard.network)" :item="tv?.network?.name" />
+        <tv-show-detail-item :label="t(tms.detailPage.infoCard.schedule)":item="scheduleText" />
+        <tv-show-detail-item :label="t(tms.detailPage.infoCard.status)" :item="tv?.status" />
+        <tv-show-detail-item :label="t(tms.detailPage.infoCard.showType)" :item="tv?.type" />
+        <tv-show-detail-item :label="t(tms.detailPage.infoCard.genres)" :item="genresText" />
+        <tv-show-detail-item v-if="tv?.officialSite" :label="t(tms.detailPage.infoCard.site)" :link="tv?.officialSite" :link-text="tv?.officialSite" />
         <vue3-star-ratings v-model="rating" :disable-click="true" :numberOfStars="10" />
         <div v-if="tv?.externals.imdb" class="mt-4">
           <a :href="'https://www.imdb.com/title/' + tv?.externals.imdb" :alt="tv?.name" target="_blank"><img class="w-14" src="../assets/imdb.png" /></a>
@@ -60,6 +61,11 @@ import tvShowDetailItem from '@/components/tvShowDetailItem.vue'
 import { PlayIcon } from '@heroicons/vue/20/solid'
 import tvService from '@/api/tvService'
 import router from '@/router'
+import { useI18n } from 'vue-i18n'
+import { Messages } from '@/i18n'
+
+const t = useI18n({ inheritLocale: true, useScope: 'global' }).t
+const tms = Messages
 
 const tv = ref<TvShow | undefined>(undefined)
 const loaded = ref<boolean>(false)
